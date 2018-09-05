@@ -17,8 +17,7 @@ import requests
 # Params
 #======================================================================]
 url="http://158.125.175.200/?command=TableDisplay&table=Met1&records=24"
-logfile="/home/lunet/gytm3/CampusMet/campus_log.txt"
-url_post="http://plumeplotter.com/newhurst/obs.php"
+logfile="/home/lunet/gytm3/LboroWeather/campus_log.txt"
 cols=["T","RH","WS","SOL","RAIN","PRESS"]
 #======================================================================#
 
@@ -54,11 +53,11 @@ if os.path.isfile(logfile):
     old=pd.read_csv(logfile,sep="\t")
     old.set_index("datetime",inplace=True)  
     out=old.append(data[data.index>old.index[-1]])
-    out.to_csv("/home/lunet/gytm3/CampusMet/campus_log.txt",sep="\t",\
+    out.to_csv(logfile,sep="\t",\
                float_format="%.3f")
 
 else: 
-    data.to_csv("/home/lunet/gytm3/CampusMet/campus_log.txt",sep="\t",\
+    data.to_csv(logfile,sep="\t",\
                float_format="%.3f")
 
 
