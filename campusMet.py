@@ -5,14 +5,13 @@ Spyder Editor
 This is a temporary script file.
 """
 from pylab import*
-import urllib2
+import urllib.request as urllib2
 import numpy as np
 import re
 import pandas as pd
 import os
 import requests
 
-#pd.options.display.float_format = '{:,.2f}'.format # sets number of dp in DF
 #======================================================================#
 # Params
 #======================================================================]
@@ -60,16 +59,4 @@ else:
     data.to_csv(logfile,sep="\t",\
                float_format="%.3f")
 
-
-# Compose data to send data to Ashley...
-#
-#string = {"KEY": "319274", "OBSERVATION": }
-#resp = requests.post('http://yourserver.de/test.php', params=userdata)    
-
-
-# plot
-#fig,ax=plt.subplots(1,1)
-#data["T"].plot(ax=ax,marker=".",color="k",linewidth=0.5)
-#ax.set_xlabel("Local Time")
-#ax.set_ylabel("Air Temperature\n($^{\circ}$C)")
 
